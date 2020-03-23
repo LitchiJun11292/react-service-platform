@@ -1,43 +1,61 @@
 import React from 'react';
-import { Menu } from 'antd';
+import {NavLink} from 'react-router-dom';
+import {Menu} from 'antd';
+import MenConfig from './../../utils/menuConfig';
+import * as constants from './../../utils/constants.js';
 import {
     UserOutlined,
     VideoCameraOutlined,
     MailOutlined,
 } from '@ant-design/icons';
 
-const { SubMenu } = Menu;
+const {SubMenu} = Menu;
 
 class NavLerft extends React.Component {
 
-    render() {
+    render () {
         return (
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                <Menu.Item key="1">
-                    <UserOutlined />
-                    <span>nav 1</span>
-                </Menu.Item>
-                <Menu.Item key="2">
-                    <VideoCameraOutlined />
-                    <span>nav 2</span>
-                </Menu.Item>
-
-                <SubMenu
-                    key="sub1"
-                    title={
-                        <span>
-                            <MailOutlined />
-                            <span>Navigation One</span>
-                        </span>
-                    }>
-                    <Menu.Item key="5">Option 5</Menu.Item>
-                    <Menu.Item key="6">Option 6</Menu.Item>
-                    <Menu.Item key="7">Option 7</Menu.Item>
-                    <Menu.Item key="8">Option 8</Menu.Item>
-                </SubMenu>
+                {this.state.menuTreeNode}
             </Menu>
         );
     }
+
+    UNSAFE_componentWillMount () {
+        const menuTreeNode = this.renderMenu(MenConfig['college']);
+        this.setState({
+            menuTreeNode
+        });
+    }
+
+    // 菜单渲染
+    renderMenu = (data) => {
+        return data.map((item, index) => {
+            if (item.children && item.children.length > 0) {
+                return (
+                    <SubMenu
+                        key={index}
+                        title={
+                            <span>
+                                <MailOutlined/>
+                                <span>{item.title}</span>
+                            </span>
+                        }>
+                        {this.renderMenu(item.children)}
+                    </SubMenu>
+                )
+            } else {
+                return (
+                    <Menu.Item key={item.url}>
+                        {item.title === '办事大厅' ? <MailOutlined/> : ''}
+                        <span>
+                            <NavLink to={item.url} style={{color: 'inherit'}}>{item.title}</NavLink>
+                        </span>
+                    </Menu.Item>
+                )
+            }
+        })
+    }
 }
 
-export default  NavLerft;
+export default NavLerft;

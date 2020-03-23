@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Breadcrumb, Avatar} from 'antd';
-import {Menu, Dropdown, Button} from 'antd';
+import {Menu, Dropdown} from 'antd';
 import {UserOutlined} from '@ant-design/icons';
 import './ucenterIndex.scss';
 import {
@@ -20,7 +20,7 @@ const menu = (
             <Link to="/login">设置</Link>
         </Menu.Item>
         <Menu.Divider/>
-        <Menu.Item key="1">
+        <Menu.Item key="2">
             <Link to="/login">退出</Link>
         </Menu.Item>
     </Menu>

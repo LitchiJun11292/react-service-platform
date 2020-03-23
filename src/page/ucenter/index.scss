@@ -1,12 +1,12 @@
-.ucenter_layout{
-  .ant-layout-sider-dark{
+.ucenter_layout {
+  .ant-layout-sider-dark {
     .logo {
       height: 32px;
       //background: rgba(255, 255, 255, 0.2);
       margin: 16px;
       overflow: hidden;
       text-align: center;
-      img{
+      img {
         height: 30px;
       }
     }
@@ -15,4 +15,11 @@
 
 .site-layout .site-layout-background {
   background: #fff;
+}
+
+.ucenter_content {
+  margin: 24px 16px;
+  padding: 24px;
+  min-height: 280px;
+  min-width: 600px;
 }

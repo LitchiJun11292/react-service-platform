@@ -1,0 +1,11 @@
+.work_hall {
+  & > div {
+    margin-bottom: 10px;
+  }
+
+  .work_hall_item{
+    margin-right: 8px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
