@@ -6,13 +6,16 @@ import {fromJS} from 'immutable';
 // immutable对象
 
 const defaultState = fromJS({
-    focused: false
+    token: '',
+    userInfos: {}
 });
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case constants.INIT_LIST_ACTION:
-            return state.set('focused', action.data);
+        case constants.SET_USER_TOKEN:
+            return state.set('token', action.data);
+        case constants.INIT_USER_INFOS:
+            return state.set('userInfos', action.data);
         default:
             return state;
     }

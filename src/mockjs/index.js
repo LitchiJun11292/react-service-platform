@@ -1,5 +1,40 @@
 import Mock from 'mockjs';
 
+/**
+ *  login 模块
+ **/
+// 登录
+Mock.mock('/mocks/security/user/login', {
+    "successFlag": true,
+    "status": 200,
+    "result": /[a-z][0-9a-z]{30}/
+});
+
+// 获取用户信息
+Mock.mock('/mocks/userInfo/currentUserInfo', {
+    "successFlag": true,
+    "status": 200,
+    "result": {
+        "activeFlag": true,
+        "actualName": "宁波高校",
+        "createAt": "2020-03-23 18:27:21",
+        "id": 175,
+        "idCard": "513436200003158637",
+        "orgId": 210,
+        "orgName": "宁波市广播电视大学",
+        "phone": "15256653880",
+        "target": "college",
+        "updateAt": "2020-03-23 19:22:02",
+        "userLevel": 1,
+        "userName": "51885_ningbo",
+        "userStatus": "active"
+    }
+});
+
+
+/**
+ *  ucenter 模块
+ **/
 // 普通表格
 Mock.mock('/mocks/list', {
     "successFlag": true,
@@ -41,3 +76,8 @@ Mock.mock('/mocks/list', {
 //         "total": 100
 //     }
 // });
+
+
+/**
+ *  home 模块
+ **/

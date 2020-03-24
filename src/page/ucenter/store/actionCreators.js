@@ -1,7 +1,10 @@
 import * as constants from './constants';
-// import {fromJS} from 'immutable';
 
-export const searchFocus = (menuName) => ({
-    type: constants.SEARCH_FOCUS,
-    menuName
+export const initListAction = (data) => ({
+    type: constants.INIT_LIST_ACTION,
+    data
+});
+
+export const getInitList = () => ({
+    type: constants.GET_INIT_LIST
 });

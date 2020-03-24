@@ -2,10 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {Menu} from 'antd';
 import MenConfig from './../../utils/menuConfig';
-import * as constants from './../../utils/constants.js';
 import {
-    UserOutlined,
-    VideoCameraOutlined,
     MailOutlined,
 } from '@ant-design/icons';
 

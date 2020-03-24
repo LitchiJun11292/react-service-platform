@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Card, Col, Row} from 'antd';
 import './index.scss';
 import Axios from './../../../utils/request.js';
+import {getInitList} from './../store/actionCreators';
 
 class WorkHall extends React.Component {
 
@@ -18,6 +20,7 @@ class WorkHall extends React.Component {
     }
 
     componentDidMount () {
+        this.props.getMoreList();
         Axios.get('/list').then(res => {
             this.setState({
                 dataList: res.list
@@ -31,11 +34,11 @@ class WorkHall extends React.Component {
                 <Col className="gutter-row" span={8} key={index}>
                     <Card title={item.busiTypeName} bordered={true}>
                         {item.flowNodes.map((it, i) => {
-                           return (
-                               <div key={i} className="work_hall_item">
-                                   {it.flowNodeName}({it.count})
-                               </div>
-                           )
+                            return (
+                                <div key={i} className="work_hall_item">
+                                    {it.flowNodeName}({it.count})
+                                </div>
+                            )
                         })}
                     </Card>
                 </Col>
@@ -44,4 +47,12 @@ class WorkHall extends React.Component {
     }
 }
 
-export default WorkHall;
+const mapState = () => ({});
+
+const mapDispatch = (dispatch) => ({
+    getMoreList() {
+        dispatch(getInitList());
+    }
+});
+
+export default connect(mapState, mapDispatch)(WorkHall);

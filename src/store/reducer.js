@@ -1,8 +1,26 @@
 import { combineReducers } from 'redux-immutable';
-import { reducer as headerReducer } from '../page/ucenter/store';
+import {
+    reducer as ucenterReducer,
+    actionCreators as ucenterActionCreators,
+    constants as ucenterConstants
+} from '../page/ucenter/store';
+import {
+    reducer as loginReducer,
+    actionCreators as loginActionCreators,
+    constants as loginConstants
+} from '../page/login/store';
 
-// redux-immutable
+export const reducer = combineReducers({
+    ucenter: ucenterReducer,
+    login: loginReducer
+ });
 
-export default combineReducers({
-    header: headerReducer
-})
+export const actionCreators = {
+    ucenter: ucenterActionCreators,
+    login: loginActionCreators
+};
+
+export const constants = {
+    ucenter: ucenterConstants,
+    login: loginConstants
+};
