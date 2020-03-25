@@ -31,6 +31,13 @@ Mock.mock('/mocks/userInfo/currentUserInfo', {
     }
 });
 
+// 用户退出登录
+Mock.mock('/mocks/security/user/logout', {
+    "successFlag": true,
+    "status": 200,
+    "result": ""
+});
+
 
 /**
  *  ucenter 模块

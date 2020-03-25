@@ -7,7 +7,8 @@ import {
 import {
     reducer as loginReducer,
     actionCreators as loginActionCreators,
-    constants as loginConstants
+    constants as loginConstants,
+    loginDates
 } from '../page/login/store';
 
 export const reducer = combineReducers({
@@ -23,4 +24,8 @@ export const actionCreators = {
 export const constants = {
     ucenter: ucenterConstants,
     login: loginConstants
+};
+
+export const states = {
+    login: loginDates
 };

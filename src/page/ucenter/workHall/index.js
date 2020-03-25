@@ -19,6 +19,11 @@ class WorkHall extends React.Component {
         );
     }
 
+    componentWillUnmount () {
+        // console.log(444);
+        // debugger
+    }
+
     componentDidMount () {
         this.props.getMoreList();
         Axios.get('/list').then(res => {
@@ -51,7 +56,7 @@ const mapState = () => ({});
 
 const mapDispatch = (dispatch) => ({
     getMoreList() {
-        dispatch(getInitList());
+        // dispatch(getInitList());
     }
 });
 
