@@ -10,11 +10,11 @@ class App extends React.Component {
 
     componentDidMount () {
         // 545
-
-
         // 25454
-        window.addEventListener("beforeunload", this.beforeunloadFn);
+        // window.addEventListener("beforeunload", this.beforeunloadFn);
     }
+
+
 
     componentWillUnmount () {
         window.removeEventListener("beforeunload", this.beforeunloadFn);
