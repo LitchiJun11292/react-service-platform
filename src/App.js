@@ -9,6 +9,10 @@ import './App.css';
 class App extends React.Component {
 
     componentDidMount () {
+        // 545
+
+
+        // 25454
         window.addEventListener("beforeunload", this.beforeunloadFn);
     }
 
