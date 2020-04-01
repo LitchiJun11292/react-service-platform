@@ -2,6 +2,7 @@ import React from 'react';
 import { Layout } from 'antd';
 import NavLerft from './../../components/NavLerft';
 import UcenterHeader from './../../components/Header/ucenterIndex';
+import NavTabs from './../../components/NavTabs';
 import logoTitle from '../../statics/images/logo_title01.png';
 import logo from '../../statics/images/logo.png';
 import './index.scss';
@@ -31,13 +32,14 @@ class Ucenter extends React.Component {
                     <NavLerft/>
                 </Sider>
                 <Layout className="site-layout">
-                    <Header className="site-layout-background" style={{ padding: 0 }}>
+                    <Header className="site-layout-header" style={{ padding: 0 }}>
                         <UcenterHeader
                             collapsed={collapsed}
                             togglecCollapsed={this.togglecCollapsed}
                         />
+                        <NavTabs/>
                     </Header>
-                    <Content className="site-layout-background ucenter_content">
+                    <Content className="site-layout-content ucenter_content">
                         {this.props.children}
                     </Content>
                 </Layout>

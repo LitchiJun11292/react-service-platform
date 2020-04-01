@@ -9,57 +9,57 @@ let menuConfig = {
         },
         {
             title: "组织架构",
-            url: "",
+            url: "organ",
             children: [
                 {
                     title: "高校信息",
-                    url: "/ucenter/collectInformation"
+                    url: "/ucenter/organ/collectInformation"
                 },
                 {
                     title: "学习中心",
-                    url: "/ucenter/learningCenter"
+                    url: "/ucenter/organ/learningCenter"
                 },
                 {
                     title: "函授站点",
-                    url: "/ucenter/correspondence"
+                    url: "/ucenter/organ/correspondence"
                 }
             ]
         },
         {
             title: "登记备案中心",
-            url: "",
+            url: "regrec",
             children: [
                 {
                     title: "登记备案",
-                    url: "/ucenter/registration"
+                    url: "/ucenter/regrec/registration"
                 },
                 {
                     title: "变更进度查询",
-                    url: "/ucenter/progressQuery"
+                    url: "/ucenter/regrec/progressQuery"
                 }
             ]
         },
         {
             title: "信息管理",
-            url: "",
+            url: "Inform",
             children: [
                 {
                     title: "投稿管理",
-                    url: "/ucenter/contribute"
+                    url: "/ucenter/Inform/contribute"
                 }
             ]
         },
         {
             title: "系统管理",
-            url: "",
+            url: "system",
             children: [
                 {
                     title: "用户管理",
-                    url: "/ucenter/userManagement"
+                    url: "/ucenter/system/userManagement"
                 },
                 {
                     title: "角色管理",
-                    url: "/ucenter/roleManagement"
+                    url: "/ucenter/system/roleManagement"
                 }
             ]
         }

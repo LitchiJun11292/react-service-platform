@@ -8,3 +8,11 @@ export const initListAction = (data) => ({
 export const getInitList = () => ({
     type: constants.GET_INIT_LIST
 });
+
+// tabs页路由列表
+export const initTablesRoutelist = (data, opa) => ({
+    type: constants.INIT_TABLES_ROUTELIST,
+    data,
+    opa
+});
+

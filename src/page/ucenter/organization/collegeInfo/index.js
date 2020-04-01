@@ -1,9 +1,13 @@
 import React from 'react';
+import {Input} from 'antd';
 
 class CollegeInfo extends React.Component {
     render () {
         return (
-            <div>高校信息</div>
+            <div>
+                高校信息
+                <Input placeholder="Basic usage" />
+            </div>
         )
     }
 }

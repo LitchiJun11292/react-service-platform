@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {Card, Col, Row} from 'antd';
 import './index.scss';
 import Axios from './../../../utils/request.js';
-import {getInitList} from './../store/actionCreators';
 
 class WorkHall extends React.Component {
 

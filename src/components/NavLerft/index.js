@@ -1,37 +1,49 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import {Menu} from 'antd';
 import MenConfig from './../../utils/menuConfig';
 import {
     MailOutlined,
 } from '@ant-design/icons';
+import {actionCreators} from "../../store/reducer";
 
 const {SubMenu} = Menu;
 
 class NavLerft extends React.Component {
 
-    render () {
-        return (
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-                {this.state.menuTreeNode}
-            </Menu>
-        );
-    }
+    state = {
+        selectedKeys: '/ucenter/collectInformation',
+        openKeys: [],
+    };
+
+    onOpenChange = openKeys => {
+        console.log(openKeys);
+        const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+        this.setState({
+            openKeys: latestOpenKey ? [latestOpenKey] : [],
+        });
+    };
 
     UNSAFE_componentWillMount () {
         const menuTreeNode = this.renderMenu(MenConfig['college']);
+        let openKeys = this.props.location.pathname.split('/');
+        let obj = MenConfig['college'][0];
+        obj.closable = false;
+        this.props.initTablesRoutelist(obj);
         this.setState({
-            menuTreeNode
+            menuTreeNode,
+            openKeys: [openKeys[2]]
         });
     }
 
     // 菜单渲染
     renderMenu = (data) => {
-        return data.map((item, index) => {
+        return data.map((item) => {
             if (item.children && item.children.length > 0) {
                 return (
                     <SubMenu
-                        key={index}
+                        key={item.url}
                         title={
                             <span>
                                 <MailOutlined/>
@@ -52,7 +64,33 @@ class NavLerft extends React.Component {
                 )
             }
         })
+    };
+
+    // 派发tabsList
+    handleUpdateTabList = ({item, key, keyPath, domEvent}) => {
+        this.props.initTablesRoutelist({
+            title: item.node.innerText,
+            url: key
+        });
+    };
+
+    render () {
+        return (
+            <Menu theme="dark" mode="inline"
+                  openKeys={this.state.openKeys}
+                  onOpenChange={this.onOpenChange}
+                  selectedKeys={this.props.location.pathname}
+                  onClick={this.handleUpdateTabList}
+                  defaultSelectedKeys={['1']}>
+                {this.state.menuTreeNode}
+            </Menu>
+        );
     }
 }
 
-export default NavLerft;
+const mapDispatch = (dispatch) => ({
+    initTablesRoutelist (data) {
+        dispatch(actionCreators.ucenter.initTablesRoutelist(data));
+    }
+});
+export default connect(null, mapDispatch)(withRouter(NavLerft));

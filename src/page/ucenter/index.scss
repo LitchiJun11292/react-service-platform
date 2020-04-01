@@ -13,13 +13,16 @@
   }
 }
 
-.site-layout .site-layout-background {
+.site-layout .site-layout-header {
   background: #fff;
+  height: 86px;
+  border-bottom: 1px solid #d8dce5;
 }
 
 .ucenter_content {
-  margin: 24px 16px;
+  margin: 16px 16px;
   padding: 24px;
   min-height: 280px;
   min-width: 600px;
+  background: #fff;
 }
